@@ -17,7 +17,11 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'bcrypt-ruby'
+
 group :test do
   gem 'faker'
   gem 'rspec'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'dm-transactions'
 end
