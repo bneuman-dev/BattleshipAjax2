@@ -82,4 +82,11 @@ describe ShipGenerator do
     ship_gen = ShipGenerator.new(5, :horiz, [25, 35, 45])
     expect(ship_gen.check_coords([])).to eq false
   end
+
+  it "#add_ship returns coords" do
+    ship_gen = ShipGenerator.new(5, :horiz, [25, 35, 45])
+    add = ship_gen.add_ship
+    expect(add.size).to eq 5
+    expect(add.is_a? Array).to be_true
+  end
 end
