@@ -6,6 +6,18 @@ class ShipGenerator
     @board = board
   end
 
+  def add_ship
+    coords = []
+
+    until check_coords(coords)
+      start_point = rand(1..10)
+      line = rand(1..10)
+      coords = generate(line, start_point)
+    end
+
+    coords
+  end
+
   def generate(line, start)
     dir = get_dir(start)
 
@@ -37,5 +49,10 @@ class ShipGenerator
     else
       :either
     end
+  end
+
+  def check_coords(coords)
+    return false if coords.empty?
+    coords.none? { |coord| @board.include? coord }
   end
 end

@@ -67,4 +67,19 @@ describe ShipGenerator do
     ship_gen = ShipGenerator.new(5, :horiz, [])
     expect(ship_gen.get_dir(5)).to eq :either
   end
+
+  it "#check_coords returns false for coords already on board" do
+    ship_gen = ShipGenerator.new(5, :horiz, [25, 35, 45])
+    expect(ship_gen.check_coords([25, 26, 27])).to eq false
+  end
+
+  it "#check_coords returns true if no coords already on board" do
+    ship_gen = ShipGenerator.new(5, :horiz, [25, 35, 45])
+    expect(ship_gen.check_coords([22, 23, 24])).to eq true
+  end
+
+  it "#check_coords returns false if coords are empty" do
+    ship_gen = ShipGenerator.new(5, :horiz, [25, 35, 45])
+    expect(ship_gen.check_coords([])).to eq false
+  end
 end
