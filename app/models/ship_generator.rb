@@ -10,8 +10,8 @@ class ShipGenerator
     coords = []
 
     until check_coords(coords)
-      start_point = rand(1..10)
-      line = rand(1..10)
+      start_point = rand(0..9)
+      line = rand(0..9)
       coords = generate(line, start_point)
     end
 
